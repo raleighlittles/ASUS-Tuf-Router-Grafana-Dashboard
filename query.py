@@ -1,10 +1,12 @@
+from numpy import extract
 import requests
 import pdb
+import urllib.parse
 
 
 wireless_url = "http://router.asus.com/wl_log.asp"
 
-def query_wireless_info(url, login_cookie):
+def query_wireless_info(url, login_cookie) -> str:
 
     header = { 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
     'Host': 'router.asus.com',
@@ -17,8 +19,42 @@ def query_wireless_info(url, login_cookie):
     cookies = { 'asus_token' : login_cookie, 'clickedItem_tab': '0' }
 
     resp = requests.get(url, cookies=cookies, headers=header, allow_redirects=False)
-    pdb.set_trace()
-
-
-query_wireless_info(wireless_url, login_cookie="nxlAHI0M0exRp72sNdXehkYpN7WE8my")
     
+    #pdb.set_trace()
+
+    # If the login info was wrong, the server will return with the login prompt, instead of the valid data that we want
+
+    if (resp.ok) and (len(resp.text) > 100):
+        return resp.text.split("\n")
+
+    else:
+        print("Error querying wireless info from router @ ", url, " | status_code =", resp.status_code, "response length = ", len(resp.text))
+        return ''
+
+
+def extract_wireless_radio_info(raw_wireless_info):
+    # Router has multiple SSIDs; one for each frequency band (2.4 GHz, 5 GHz, etc.)
+    # The format goes: SSID on one line, then Noise on the next (See docs for more info)
+    ssid_list, noise_val_list = [], []
+    for line in raw_wireless_info:
+        if 'SSID' in line:
+            ssid = extract_ssid_name(line.split()[1])
+            print("SSID found: ", ssid)
+            ssid_list.append(ssid)
+
+        elif 'noise' in line:
+            noise_level_value = line.split()[1]
+            print("Noise level value at ", noise_level_value, " dBm")
+            noise_val_list.append(noise_level_value)
+
+    return [ssid_list, noise_val_list]
+
+
+def extract_ssid_name(text) -> str:
+    # Extact SSID from wireless info
+    # See docs for an example of the SSID string
+    return urllib.parse.unquote(text.strip("\""))
+
+wl_info_raw = query_wireless_info(wireless_url, login_cookie="3BIGNT0yIlAgzHNFPOQ4slZKEwV5B1o")
+extract_wireless_radio_info(wl_info_raw)
+
