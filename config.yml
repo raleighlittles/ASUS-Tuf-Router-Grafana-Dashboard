@@ -1,0 +1,6 @@
+---
+  router_web_url: "http://router.asus.com/wl_log.asp"
+  asus_token_cookie: 'my-cookie-here'
+  influx-db:
+    port: 8086
+    database_name: 'router'
