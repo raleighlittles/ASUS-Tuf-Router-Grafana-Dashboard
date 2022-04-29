@@ -23,7 +23,6 @@ def query_wireless_info(url, login_cookie) -> str:
     #pdb.set_trace()
 
     # If the login info was wrong, the server will return with the login prompt, instead of the valid data that we want
-
     if (resp.ok) and (len(resp.text) > 100):
         return resp.text.split("\n")
 
@@ -33,9 +32,11 @@ def query_wireless_info(url, login_cookie) -> str:
 
 
 def extract_wireless_radio_info(raw_wireless_info):
+    pdb.set_trace()
     # Router has multiple SSIDs; one for each frequency band (2.4 GHz, 5 GHz, etc.)
     # The format goes: SSID on one line, then Noise on the next (See docs for more info)
     ssid_list, noise_val_list = [], []
+    
     for line in raw_wireless_info:
         if 'SSID' in line:
             ssid = extract_ssid_name(line.split()[1])
@@ -45,10 +46,12 @@ def extract_wireless_radio_info(raw_wireless_info):
         elif 'noise' in line:
             noise_level_value = line.split()[1]
             print("Noise level value at ", noise_level_value, " dBm")
+            # Add the noise level measurement to the last seen SSID
             noise_val_list.append(noise_level_value)
 
-    return [ssid_list, noise_val_list]
+    pdb.set_trace()
 
+    return [ssid_list, noise_val_list]
 
 def extract_ssid_name(text) -> str:
     # Extact SSID from wireless info
@@ -58,3 +61,4 @@ def extract_ssid_name(text) -> str:
 wl_info_raw = query_wireless_info(wireless_url, login_cookie="3BIGNT0yIlAgzHNFPOQ4slZKEwV5B1o")
 extract_wireless_radio_info(wl_info_raw)
 
+"----------------------------------------"
