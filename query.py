@@ -17,8 +17,6 @@ def query_wireless_info(url, login_cookie, user_agent) -> str:
 
     resp = requests.get(url, cookies=cookies, headers=header, allow_redirects=False)
     
-    #pdb.set_trace()
-
     # If the login info was wrong, the server will return with the login prompt, instead of the valid data that we want
     if (resp.ok) and (len(resp.text) > 100):
         # To remove byte order mark
