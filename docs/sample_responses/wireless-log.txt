@@ -1,0 +1,89 @@
+SSID: "ResNet - Open"
+noise: -89 dBm	Channel: 3
+BSSID: 04:42:1A:81:EE:E0	Capability: ESS ShortSlot RRM 
+Supported Rates: [ 1(b) 2(b) 5.5(b) 6 9 11(b) 12 18 24 36 48 54 ]
+HE Capable:
+	Chanspec: 2.4GHz channel 3 20MHz (0x1003)
+	Primary channel: 3
+	HT Capabilities: 40Mhz SGI20 SGI40 
+	Supported HT MCS : 0-15
+	Supported VHT MCS:
+		NSS1 Tx: 0-11        Rx: 0-11      
+		NSS2 Tx: 0-11        Rx: 0-11      
+	Supported HE MCS:
+	    80 Mhz:
+		NSS1 Tx: 0-11        Rx: 0-11
+		NSS2 Tx: 0-11        Rx: 0-11
+
+Interference Level: Acceptable
+Mode	: AP Only
+
+Stations List                           
+----------------------------------------
+idx MAC               Associated Authorized   RSSI PHY PSM SGI STBC MUBF NSS   BW Tx rate Rx rate Connect Time
+    5C:87:30:0E:50:53 Yes        Yes        -42dBm ax  Yes Yes No   No     2  20M  216.7M      1M     05:31:59
+    34:3E:A4:4A:2A:81 Yes        Yes        -55dBm n   Yes Yes No   No     1  20M   72.2M     24M     20:59:39
+    34:3E:A4:4F:1B:42 Yes        Yes        -61dBm n   Yes Yes No   No     1  20M   72.2M     24M     44:29:12
+
+SSID: "ResNet - Secure"
+noise: -88 dBm	Channel: 40/160
+BSSID: 04:42:1A:81:EE:E4	Capability: ESS RRM 
+Supported Rates: [ 6(b) 9 12(b) 18 24(b) 36 48 54 ]
+HE Capable:
+	Chanspec: 5GHz channel 50 160MHz (0xe932)
+	Primary channel: 40
+	HT Capabilities: 40Mhz SGI20 SGI40 
+	Supported HT MCS : 0-31
+	Supported VHT MCS:
+		NSS1 Tx: 0-11        Rx: 0-11      
+		NSS2 Tx: 0-11        Rx: 0-11      
+		NSS3 Tx: 0-11        Rx: 0-11      
+		NSS4 Tx: 0-11        Rx: 0-11      
+	Supported HE MCS:
+	    80 Mhz:
+		NSS1 Tx: 0-11        Rx: 0-11
+		NSS2 Tx: 0-11        Rx: 0-11
+		NSS3 Tx: 0-11        Rx: 0-11
+		NSS4 Tx: 0-11        Rx: 0-11
+	    160 Mhz:
+		NSS1 Tx: 0-11        Rx: 0-11
+		NSS2 Tx: 0-11        Rx: 0-11
+		NSS3 Tx: 0-11        Rx: 0-11
+		NSS4 Tx: 0-11        Rx: 0-11
+
+Interference Level: Acceptable
+Mode	: AP Only
+
+DFS status: state In-Service Monitoring(ISM) time elapsed 817815900ms radar channel cleared by DFS channel 40/160 (0xE932)
+
+Channel Information                     
+----------------------------------------
+Channel 36	A Band
+Channel 40	A Band
+Channel 44	A Band
+Channel 48	A Band
+Channel 52	A Band, RADAR Sensitive
+Channel 56	A Band, RADAR Sensitive
+Channel 60	A Band, RADAR Sensitive
+Channel 64	A Band, RADAR Sensitive
+Channel 100	A Band, RADAR Sensitive, Passive
+Channel 104	A Band, RADAR Sensitive, Passive
+Channel 108	A Band, RADAR Sensitive, Passive
+Channel 112	A Band, RADAR Sensitive, Passive
+Channel 116	A Band, RADAR Sensitive, Passive
+Channel 120	A Band, RADAR Sensitive, Passive
+Channel 124	A Band, RADAR Sensitive, Passive
+Channel 128	A Band, RADAR Sensitive, Passive
+Channel 132	A Band, RADAR Sensitive, Passive
+Channel 136	A Band, RADAR Sensitive, Passive
+Channel 140	A Band, RADAR Sensitive, Passive
+Channel 144	A Band, RADAR Sensitive, Passive
+Channel 149	A Band
+Channel 153	A Band
+Channel 157	A Band
+Channel 161	A Band
+Channel 165	A Band
+
+Stations List                           
+----------------------------------------
+idx MAC               Associated Authorized   RSSI PHY PSM SGI STBC MUBF NSS   BW Tx rate Rx rate Connect Time
