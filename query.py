@@ -25,7 +25,7 @@ def query_wireless_info(url, login_cookie, user_agent) -> str:
 
     else:
         print("Error querying wireless info from router @ ", url, " | status_code =", resp.status_code, "response length = ", len(resp.text))
-        return ''
+        raise Exception("Error: Unable to retrieve wireless radio information. Make sure your login information is correct")
 
 
 def extract_wireless_radio_info(url, login_cookie, user_agent) -> typing.List:
